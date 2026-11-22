@@ -1,0 +1,253 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Voo pelas Cidades Históricas de Minas</title>
+<style>
+:root{--bg:#e8e0cc;--fg:#2b2418;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d0e10;--fg:#d9d3c2}}
+:root[data-theme="dark"]{--bg:#0d0e10;--fg:#d9d3c2}
+html,body{margin:0;height:100%}body{background:var(--bg);color:var(--fg);font:13px/1.5 system-ui,sans-serif;display:flex;flex-direction:column;align-items:center}
+main{display:flex;align-items:center;justify-content:center;gap:14px;height:100dvh;width:100%;padding:0 10px;box-sizing:border-box}
+aside{flex:0 0 215px;font-size:15px;line-height:1.45;max-height:100dvh;overflow:auto}
+aside h2{font-size:17px;margin:0 0 4px}aside dl{margin:0 0 14px}aside dt{margin-top:8px;font-weight:600}aside dd{margin:2px 0 0}aside small{font-size:1em;display:block;opacity:.85;margin-top:2px}
+kbd{font:600 14px ui-monospace,monospace;background:rgba(127,127,127,.22);border:1px solid rgba(127,127,127,.5);border-radius:4px;padding:0 5px}
+svg{flex:0 0 auto;height:min(100dvh,calc((100vw - 490px)*.6333));width:auto;aspect-ratio:1200/760;touch-action:none;user-select:none;display:block}
+#mz path,#mz line,#mz circle,#mz text{vector-effect:non-scaling-stroke}#mz text{font-size:calc(10px / var(--z,1))}
+@media(max-width:1000px){main{flex-wrap:wrap;height:auto;padding:0}svg{order:-1;height:auto;width:100%}aside{flex:1 1 260px;padding:0 12px}}
+p{margin:6px 12px;text-align:center;max-width:1100px}text{font-family:system-ui,sans-serif}
+</style>
+</head>
+<body>
+<main><aside><h2>Comandos de voo</h2><dl><dt>Ailerons (inclinar)</dt><dd><kbd>←</kbd> <kbd>→</kbd></dd><dt>Profundores</dt><dd><kbd>↑</kbd> nariz baixo<br><kbd>↓</kbd> nariz alto</dd><dt>Leme</dt><dd><kbd>Q</kbd> esquerda <kbd>E</kbd> direita</dd><dt>Potência</dt><dd><kbd>PgUp</kbd> aumenta<br><kbd>PgDn</kbd> reduz</dd><dt>Flapes</dt><dd><kbd>End</kbd> baixa<br><kbd>Home</kbd> recolhe</dd><dt>Freio (no solo)</dt><dd><kbd>B</kbd> ou <kbd>espaço</kbd></dd></dl><small>Com mouse ou toque, arraste na janela como manche e use as alavancas e barras do painel.</small></aside>
+<svg id="sv" viewBox="0 0 1200 760">
+<defs>
+<linearGradient id="gS" gradientUnits="userSpaceOnUse" x1="0" y1="-420" x2="0" y2="0">
+<stop offset="0" stop-color="#2a63ad"/>
+<stop offset="1" stop-color="#c3dcec"/>
+</linearGradient>
+<linearGradient id="gG" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="420">
+<stop offset="0" stop-color="#b3b98f"/>
+<stop offset=".3" stop-color="#72904c"/>
+<stop offset="1" stop-color="#486430"/>
+</linearGradient>
+<clipPath id="vw">
+<rect width="1200" height="450"/>
+</clipPath>
+<clipPath id="cAI">
+<circle r="66"/>
+</clipPath>
+<clipPath id="cMM">
+<rect width="340" height="186"/>
+</clipPath>
+</defs>
+<g clip-path="url(#vw)">
+	<g id="hz">
+	<rect x="-2000" y="-3000" width="5200" height="3000" fill="url(#gS)"/>
+	<rect x="-2000" y="0" width="5200" height="3000" fill="url(#gG)"/>
+	</g>
+	<g id="wd"></g>
+</g>
+<rect id="hV" width="1200" height="430" fill="transparent"/>
+<g id="mm" pointer-events="none"></g>
+<g font-weight="600" pointer-events="none" style="paint-order:stroke" stroke="#000" stroke-width="3" fill="#fff">
+<text id="t1" x="18" y="30" font-size="16"></text>
+<text id="t3" x="18" y="54" font-size="14" fill="#ffe08a"></text>
+<text id="t2" x="600" y="120" font-size="34" text-anchor="middle" fill="#ff5a4a"></text></g>
+<g id="panel"></g>
+</svg>
+<aside><h2>Navegação e apoio</h2><dl><dt>Cidade-destino</dt><dd><kbd>N</kbd> troca, ou toque no nome dela no minimapa. A agulha do ADF aponta para ela.</dd><dt>Zoom do minimapa</dt><dd><kbd>+</kbd> <kbd>−</kbd> ou os botões no canto do mapa</dd><dt>Mover o minimapa</dt><dd>Arraste o mapa ou toque em ✋. Toque em ✋ de novo para voltar a seguir o avião.</dd><dt>Distância</dt><dd><kbd>T</kbd> zera</dd><dt>Combustível</dt><dd><kbd>R</kbd> reabastece, parado na pista</dd><dt>Jogo</dt><dd><kbd>P</kbd> pausa · <kbd>M</kbd> som<br><kbd>Enter</kbd> reinicia após acidente</dd></dl><h2>Roteiro</h2><small>Decolagem: potência máxima e rotação a cerca de 110 km/h.<br>Pouso: aproximação a 120–130 km/h, flapes 20–30°, toque suave e asas niveladas.<br>Cada cidade tem pista e torre de controle, a sudoeste do centro. A torre avisa quando você chega a 8 km.<br>Velocidade máxima de cerca de 350 km/h, com potência total e flapes recolhidos.<br>Escala estilizada: 1 px do mapa = 60 m.</small></aside></main>
+<script>
+const $=id=>document.getElementById(id),sv=$('sv'),S=60,CX=600,CY=225,F=720,NR=2,D=180/Math.PI;
+const cl=(v,a=-1,b=1)=>Math.max(a,Math.min(b,v));
+const hs=(a,b)=>{let h=Math.imul(a|0,374761393)+Math.imul(b|0,668265263);h=Math.imul(h^(h>>>13),1274126177);return((h^(h>>>16))>>>0)/4294967296};
+const CI=[['Belo Horizonte',697,375],['Sabará',800,226],['Caeté',1062,207],['Santa Bárbara',1028,342],['Mariana',990,458],['Ouro Preto',1058,563],['Congonhas',585,516],['São João del Rei',377,542],['Tiradentes',457,645]].map(c=>({n:c[0],x:c[1]*S,y:c[2]*S}));
+const RD=[[[697,375],[740,320],[770,260],[800,226]],[[1062,207],[1010,250],[1020,300],[1028,342]],[[1028,342],[1000,400],[990,458]],[[990,458],[1030,500],[1058,563]],[[697,375],[800,360],[1028,342]],[[697,375],[800,420],[900,445],[990,458]],[[697,375],[760,440],[850,540],[950,590],[1058,563]],[[697,375],[640,450],[585,516]],[[585,516],[480,500],[377,542]],[[585,516],[520,590],[457,645]],[[377,542],[390,590],[457,645]],[[697,375],[600,300],[480,230],[380,200],[230,140]]];
+const SG=[];RD.forEach(r=>{for(let i=0;i<r.length-1;i++){const a=r[i],b=r[i+1],n=Math.max(1,Math.ceil(Math.hypot(b[0]-a[0],b[1]-a[1])/6));for(let k=0;k<n;k++)SG.push([a[0]+(b[0]-a[0])*k/n,a[1]+(b[1]-a[1])*k/n,a[0]+(b[0]-a[0])*(k+1)/n,a[1]+(b[1]-a[1])*(k+1)/n].map(v=>v*S))}});
+const MT=[[880,200,60,650],[930,150,55,600],[850,300,50,500],[860,330,35,450],[620,175,55,550],[700,160,45,500],[300,410,55,500],[390,390,45,450],[880,540,50,550],[940,590,45,450],[300,610,40,350],[470,240,40,350]].map(m=>({x:m[0]*S,y:m[1]*S,r:m[2]*S,h:m[3]}));
+const AP=CI.map(c=>({n:c.n,x:c.x-1200,y:c.y+1800})),NZ=[...CI,...AP];
+const onRW=(x,y)=>AP.some(a=>Math.abs(x-a.x)<900&&Math.abs(y-a.y)<30);
+let s,paused=0,muted=0;
+function reset(){
+	const a=AP[0];
+	s={x:a.x-800,y:a.y,z:0,psi:Math.PI/2,th:0,phi:0,V:0,g:0,fuel:120,trip:0,ail:0,elev:0,rud:0,thr:0,fl:0,vsd:0,ground:1,crashed:0,stall:0,brk:0,tgt:5,nr:[1],vis:[],trail:[],tt:0,d0:Math.hypot(CI[5].x-(a.x-800),CI[5].y-a.y),msg:'Pista de Belo Horizonte: potência máxima e rotação a ~110 km/h',mt:15}
+	}
+	reset();
+/* ---------- painel ---------- */
+const T=(a0,a1,n,ev,fn)=>{
+	let o='';
+	for(let i=0;i<=n;i++){
+		const a=a0+(a1-a0)*i/n,b=i%ev==0;o+=`<path d="M0,-58V${b?-48:-53}" stroke="#ddd" stroke-width="${b?2:1}" transform="rotate(${a})"/>`;if(b)o+=`<text transform="rotate(${a}) translate(0,-37) rotate(${-a})" text-anchor="middle" dy=".35em" font-size="11" fill="#ddd">${fn(i)}</text>`
+		}
+	return o
+	};
+const arc=(a0,a1,r,c)=>{
+	const p=a=>[r*Math.sin(a/D),-r*Math.cos(a/D)],q=p(a0),w=p(a1);
+	return`<path d="M${q}A${r},${r} 0 ${a1-a0>180?1:0} 1 ${w}" fill="none" stroke="${c}" stroke-width="4"/>`
+	};
+const nd=(id,len,col,w=3.5)=>`<g id="${id}"><path d="M0,10L${-w},0L0,${-len}L${w},0Z" fill="${col}"/><circle r="5" fill="#333"/></g>`;
+const dl=(x,y,ttl,inner)=>`<g transform="translate(${x},${y})"><circle r="75" fill="#08090a" stroke="#6b6e73" stroke-width="3"/><circle r="71" fill="#17181a"/>${inner}<text y="22" text-anchor="middle" font-size="10" fill="#9aa0a6">${ttl}</text></g>`;
+const dg=(id,y,sz=13)=>`<text id="${id}" y="${y}" text-anchor="middle" font-size="${sz}" font-weight="700" fill="#ffd36b" font-family="monospace"></text>`;
+const av=v=>-140+280*v/400;
+const lad=[-30,-25,-20,-15,-10,-5,5,10,15,20,25,30].map(p=>{
+	const L=p%10?9:20;
+	return`<path d="M${-L},${-p*2.2}H${L}" stroke="#fff" stroke-width="1.2"/>`+(p%10?'':`<text x="${L+3}" y="${-p*2.2+3}" font-size="8" fill="#fff">${Math.abs(p)}</text>`)}).join('');
+const lbl=(x,y,t)=>`<text x="${x}" y="${y}" text-anchor="middle" font-size="11" fill="#c9ccd1">${t}</text>`;
+const track=(x,y,w,h)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="6" fill="#050505" stroke="#5a5d62"/>`;
+$('panel').innerHTML=`<path d="M0,452Q600,420 1200,452V760H0Z" fill="#1d1e21" stroke="#3a3c40" stroke-width="3"/>
+${dl(95,565,'combustível',T(-110,110,4,2,i=>['E','½','F'][i/2])+arc(-110,-77,63,'#d33')+nd('nF',56,'#fff')+dg('tF',38))}
+${dl(255,565,'km/h',T(-140,140,20,2,i=>i*20)+arc(av(105),av(300),63,'#2fa84f')+arc(av(300),av(350),63,'#e6b422')+arc(av(350),av(375),63,'#d33')+nd('nS',58,'#fff')+dg('tS',38))}
+${dl(415,565,'',`<g clip-path="url(#cAI)"><g id="aiH"><rect x="-120" y="-300" width="240" height="300" fill="#3a78c2"/><rect x="-120" y="0" width="240" height="300" fill="#8b5a2b"/><path d="M-120,0H120" stroke="#fff" stroke-width="2"/>${lad}</g></g><g id="aiR"><path d="M0,-70L-5,-62H5Z" fill="#fff"/></g><path d="M-44,0H-16L-10,8M44,0H16L10,8" stroke="#ffb000" stroke-width="3" fill="none"/><circle r="2.5" fill="#ffb000"/>`)}
+${dl(575,565,'',T(0,360,10,1,i=>i%10)+nd('nA1',60,'#fff')+nd('nA2',36,'#ffcf40',5)+dg('tA',22,12))}
+${dl(735,565,'m/s',T(-260,80,20,5,i=>Math.abs(i-10))+nd('nV',58,'#fff')+'<text x="0" y="-18" font-size="8" fill="#9aa0a6" text-anchor="middle">sobe</text>')}
+${lbl(868,478,'POTÊNCIA')}${track(862,490,12,210)}<g id="kT"><rect x="846" y="-14" width="44" height="28" rx="5" fill="#c0392b"/><path d="M850,0H886" stroke="#fff"/></g>${lbl(868,716,'0 — 100%')}
+${lbl(930,478,'FLAPES')}${track(924,490,12,210)}<g id="kF"><rect x="908" y="-14" width="44" height="28" rx="5" fill="#2c6fb7"/><path d="M912,0H948" stroke="#fff"/></g>${[0,10,20,30].map((d,i)=>`<text x="960" y="${494+i*70}" font-size="10" fill="#9aa0a6">${d}°</text>`).join('')}
+${lbl(990,478,'PROFUNDOR')}${track(984,490,12,210)}<rect id="mE" x="972" y="-5" width="36" height="10" rx="2" fill="#e8c04a"/><text x="1010" y="498" font-size="10" fill="#9aa0a6">cabra</text><text x="1010" y="700" font-size="10" fill="#9aa0a6">pica</text>
+${lbl(1100,478,'AILERONS')}${track(1025,490,150,12)}<rect id="mA" x="-5" y="-14" width="10" height="28" rx="2" fill="#e8c04a" transform="translate(1100,496)"/>
+${lbl(1100,568,'LEME')}${track(1025,580,150,12)}<rect id="mR" x="-5" y="-14" width="10" height="28" rx="2" fill="#e8c04a" transform="translate(1100,586)"/>
+<g font-family="monospace" fill="#ffd36b"><rect x="20" y="662" width="190" height="84" rx="8" fill="#0a0a0b" stroke="#4a4d52"/><text x="115" y="681" font-size="10" fill="#9aa0a6" text-anchor="middle" font-family="system-ui">DISTÂNCIA PERCORRIDA</text><text id="tD" x="115" y="710" font-size="26" text-anchor="middle"></text><rect x="65" y="718" width="100" height="20" rx="5" fill="#3a3d42"/><text x="115" y="733" font-size="11" fill="#fff" text-anchor="middle" font-family="system-ui">ZERAR (T)</text><rect id="hZ" x="65" y="718" width="100" height="20" fill="transparent"/>
+<rect x="225" y="662" width="130" height="84" rx="8" fill="#0a0a0b" stroke="#4a4d52"/><g transform="translate(266,704)"><circle r="34" fill="#111" stroke="#6b6e73" stroke-width="2"/><g id="cR">${[0,30,60,90,120,150,180,210,240,270,300,330].map(a=>a%90?`<path d="M0,-33V-28" stroke="#aaa" transform="rotate(${a})"/>`:`<text transform="rotate(${a}) translate(0,-20)" text-anchor="middle" dy=".35em" font-size="12" font-family="system-ui" font-weight="700" fill="${a?'#ddd':'#ff5a4a'}">${['N','L','S','O'][a/90]}</text>`).join('')}</g><path d="M0,-38L-4,-31H4Z" fill="#ff7a1a"/></g><text x="328" y="684" font-size="10" fill="#9aa0a6" text-anchor="middle" font-family="system-ui">BÚSSOLA</text><text id="tH" x="328" y="712" font-size="20" text-anchor="middle"></text>
+<rect x="370" y="662" width="86" height="84" rx="8" fill="#0a0a0b" stroke="#4a4d52"/><text x="376" y="676" font-size="9" fill="#9aa0a6" font-family="system-ui">ADF</text><g transform="translate(413,704)"><circle r="34" fill="#111" stroke="#6b6e73" stroke-width="2"/>${[0,45,90,135,180,225,270,315].map(a=>`<path d="M0,-33V-29" stroke="#aaa" transform="rotate(${a})"/>`).join('')}<g id="nAD"><path d="M0,-30L-5,-17H5Z" fill="#ff7a1a"/><path d="M0,-17V22" stroke="#ff7a1a" stroke-width="2.5"/><path d="M0,22L-4,29H4Z" fill="#ff7a1a"/></g><circle r="3" fill="#333"/></g><rect x="470" y="662" width="360" height="84" rx="8" fill="#0a0a0b" stroke="#4a4d52"/><text id="s1" x="484" y="695" font-size="16"></text><text id="s2" x="484" y="724" font-size="16"></text></g>
+<rect id="hT" x="850" y="480" width="50" height="230" fill="transparent"/><rect id="hF" x="910" y="480" width="50" height="230" fill="transparent"/><rect id="hE" x="970" y="480" width="50" height="230" fill="transparent"/><rect id="hA" x="1020" y="478" width="160" height="40" fill="transparent"/><rect id="hR" x="1020" y="568" width="160" height="40" fill="transparent"/>`;
+/* minimapa */
+const mk=340/1408;
+$('mm').innerHTML=`<g transform="translate(985,12)"><rect width="200" height="110" rx="6" fill="#efe3c4" fill-opacity=".85" stroke="#6b5a3c"/><path d="${RD.map(r=>'M'+r.map(p=>`${p[0]*mk},${p[1]*mk}`).join('L')).join('')}" fill="none" stroke="#9b4a34" stroke-width="1.3"/>${CI.map(c=>`<circle cx="${c.x/S*mk}" cy="${c.y/S*mk}" r="2.2" fill="#2b2418"/><text x="${c.x/S*mk+4}" y="${c.y/S*mk+3}" font-size="7" fill="#2b2418">${c.n}</text>`).join('')}${AP.map(a=>`<rect x="${a.x/S*mk-2}" y="${a.y/S*mk-1}" width="4" height="2" fill="#256"/>`).join('')}<g id="mp"><path d="M0,-6L4,5L0,3L-4,5Z" fill="#d11" stroke="#fff" stroke-width=".8"/></g></g>`;
+const MW=340,MH=186;
+$('mm').innerHTML=`<g transform="translate(850,10)"><rect width="${MW}" height="${MH+38}" rx="8" fill="#000" fill-opacity=".28" stroke="#fff" stroke-opacity=".5"/><rect id="mH" width="${MW}" height="${MH}" fill="transparent" pointer-events="all" style="cursor:grab"/><g clip-path="url(#cMM)"><g id="mz"><path d="${RD.map(r=>'M'+r.map(p=>`${p[0]*mk},${p[1]*mk}`).join('L')).join('')}" fill="none" stroke="#ff9a6e" stroke-width="1.8"/><path id="mt" fill="none" stroke="#7dd3ff" stroke-width="1.5" stroke-dasharray="2 2"/><line id="ml" stroke="#ffb000" stroke-width="1.5" stroke-dasharray="5 3"/>${AP.map(a=>`<rect x="${a.x/S*mk-3}" y="${a.y/S*mk-1.5}" width="6" height="3" fill="#7dff9a"/>`).join('')}${CI.map((c,i)=>`<g pointer-events="all" style="cursor:pointer" onpointerdown="pick(${i})"><circle cx="${c.x/S*mk}" cy="${c.y/S*mk}" r="13" fill="transparent"/><circle id="mc${i}" cx="${c.x/S*mk}" cy="${c.y/S*mk}" r="4.5" fill="#fff" stroke="#000"/><text x="${c.x/S*mk+9}" y="${c.y/S*mk+4}" font-size="10" font-weight="600" fill="#fff" stroke="#000" stroke-width="2.5" style="paint-order:stroke">${c.n}</text></g>`).join('')}<g id="mp"><path d="M0,-8L5.5,7L0,4L-5.5,7Z" fill="#ff3b30" stroke="#fff" stroke-width="1"/></g></g></g><g pointer-events="all" style="cursor:pointer" onpointerdown="hand()"><rect id="mhb" x="${MW-86}" y="6" width="24" height="24" rx="5" fill="#000" fill-opacity=".55" stroke="#fff" stroke-opacity=".6"/><text x="${MW-74}" y="24" text-anchor="middle" font-size="15">✋</text></g><g pointer-events="all" style="cursor:pointer" onpointerdown="zoom(1/1.5)"><rect x="${MW-58}" y="6" width="24" height="24" rx="5" fill="#000" fill-opacity=".55" stroke="#fff" stroke-opacity=".6"/><text x="${MW-46}" y="25" text-anchor="middle" font-size="20" fill="#fff">−</text></g><g pointer-events="all" style="cursor:pointer" onpointerdown="zoom(1.5)"><rect x="${MW-30}" y="6" width="24" height="24" rx="5" fill="#000" fill-opacity=".55" stroke="#fff" stroke-opacity=".6"/><text x="${MW-18}" y="25" text-anchor="middle" font-size="20" fill="#fff">+</text></g><rect x="10" y="${MH+8}" width="320" height="8" rx="4" fill="#fff" fill-opacity=".25"/><rect id="mb" x="10" y="${MH+8}" width="0" height="8" rx="4" fill="#ffb000"/><text id="mbt" x="10" y="${MH+32}" font-size="11" font-weight="600" fill="#fff" stroke="#000" stroke-width="2.5" style="paint-order:stroke"></text></g>`;
+let ZM=1;function zoom(f){ZM=cl(ZM*f,1,6)}
+let HM=0,HC=[0,0];
+function hand(){HM=HM?0:1;HC=[s.x/S*mk,s.y/S*mk]}
+function pick(i){s.tgt=i;s.d0=Math.hypot(CI[i].x-s.x,CI[i].y-s.y);
+s.msg='Destino: '+CI[i].n;s.mt=3}
+/* entradas */
+const K={},ov={};let au,os,gn;
+function audio(){
+	if(au)return;
+	try{
+		au=new(window.AudioContext||window.webkitAudioContext)();
+		os=au.createOscillator();
+		os.type='sawtooth';
+		gn=au.createGain();
+		gn.gain.value=0;
+		os.connect(gn);
+		gn.connect(au.destination);
+		os.start()
+		}catch(e){
+		au=1
+		}
+	}
+function refuel(){if(s.ground&&s.V<.5&&onRW(s.x,s.y)){s.fuel=120;s.msg='Tanque cheio: 120 L'}else s.msg='Pare sobre uma pista para reabastecer';s.mt=4}
+addEventListener('keydown',e=>{K[e.code]=1;audio();if(e.code=='End')s.fl=Math.min(3,s.fl+1);if(e.code=='Home')s.fl=Math.max(0,s.fl-1);if(e.code=='KeyT')s.trip=0;if(e.code=='KeyN')pick((s.tgt+1)%CI.length);if(e.code=='Equal'||e.code=='NumpadAdd')zoom(1.5);if(e.code=='Minus'||e.code=='NumpadSubtract')zoom(1/1.5);if(e.code=='KeyR')refuel();if(e.code=='Enter'&&s.crashed)reset();if(e.code=='KeyP')paused=!paused;if(e.code=='KeyM')muted=!muted;if(e.code.startsWith('Arrow')||e.code=='Space'||['PageUp','PageDown','Home','End'].includes(e.code))e.preventDefault()});
+addEventListener('keyup',e=>K[e.code]=0);
+const pt=e=>{const p=sv.createSVGPoint();p.x=e.clientX;p.y=e.clientY;return p.matrixTransform(sv.getScreenCTM().inverse())};
+function bind(id,fn){const e=$(id);e.onpointerdown=ev=>{e.setPointerCapture(ev.pointerId);audio();fn(pt(ev),0)};e.onpointermove=ev=>{if(ev.buttons)fn(pt(ev),1)};e.onpointerup=e.onpointercancel=()=>fn(null,2)}
+bind('hT',p=>{if(p)s.thr=cl((700-p.y)/210,0,1)});bind('hF',p=>{if(p)s.fl=cl(Math.round((p.y-490)/70),0,3)});
+bind('hE',p=>{ov.elev=p?cl((595-p.y)/100):null});bind('hA',p=>{ov.ail=p?cl((p.x-1100)/70):null});bind('hR',p=>{ov.rud=p?cl((p.x-1100)/70):null});
+let o0;bind('hV',(p,k)=>{if(k==0)o0=p;if(p&&o0){ov.ail=cl((p.x-o0.x)/160);ov.elev=cl((p.y-o0.y)/130)}else ov.ail=ov.elev=null});
+$('hZ').onclick=()=>s.trip=0;
+let ml;bind('mH',(p,k)=>{if(!p){ml=null;return}if(k==0){ml=p;return}if(ml){if(!HM){HM=1;HC=[s.x/S*mk,s.y/S*mk]}HC=[cl(HC[0]-(p.x-ml.x)/ZM,0,MW),cl(HC[1]-(p.y-ml.y)/ZM,0,MH)];ml=p}});
+/* física */
+const ap=(v,t,r,dt)=>v+cl(t-v,-r*dt,r*dt);
+function crash(m){s.crashed=1;s.V=0;s.msg=m;s.mt=1e9}
+function update(dt){
+if(s.crashed)return;
+const k=(a,b)=>(K[a]?1:0)-(K[b]?1:0),t=(o,v)=>o!=null?o:v;
+s.ail=ap(s.ail,t(ov.ail,k('ArrowRight','ArrowLeft')),3,dt);s.elev=ap(s.elev,t(ov.elev,k('ArrowDown','ArrowUp')),2,dt);s.rud=ap(s.rud,t(ov.rud,k('KeyE','KeyQ')),3,dt);
+s.thr=cl(s.thr+k('PageUp','PageDown')*.5*dt,0,1);s.brk=K.KeyB||K.Space?1:0;
+const run=s.fuel>0,th=run?s.thr:0,Vse=(29-s.fl*1.5)/Math.sqrt(Math.max(Math.cos(s.phi),.3)),al=.02+.2*(Vse/Math.max(s.V,1))**2;
+let a=th*(2.6-.002*s.V)-.000256*s.V*s.V*(1+.35*s.fl)-9.81*Math.sin(s.g);
+if(s.ground)a-=(onRW(s.x,s.y)?.4:1.8)+(s.brk?3.5:0);
+s.V=Math.max(0,s.V+a*dt);
+if(s.ground){s.stall=0;s.th=cl(s.th+(s.elev*.5*Math.min(1,s.V/30)-(Math.abs(s.elev)<.05?.15:0))*dt,0,.3);s.phi=0;s.g=0;s.z=0;s.psi+=s.rud*.6*Math.min(1,s.V/8)*dt;
+if(s.V>Vse*1.05&&s.th-al>.01){s.ground=0;s.g=.01;s.z=.3;s.msg='Decolou!';s.mt=3}}
+else{s.stall=s.V<Vse;s.th=cl(s.th+(s.elev*.5*cl(s.V/30,.3,1.2)-(s.stall?.25:0))*dt,-.6,.6);
+s.g+=((s.stall?-.3:s.th-al)-s.g)*Math.min(1,1.3*dt);
+s.phi=cl(s.phi+(s.ail*Math.min(1.2,s.V/30)-s.phi*.12)*dt,-1.3,1.3);
+s.psi+=(9.81*Math.tan(s.phi)/Math.max(s.V,15)+s.rud*.1)*dt;s.z+=s.V*Math.sin(s.g)*dt;
+if(s.z<=0){s.z=0;const vs=s.V*Math.sin(s.g);
+if(vs<-3.5||Math.abs(s.phi)>.2||s.th<-.03||s.V>75)return crash(vs<-3.5?'Impacto forte demais ('+vs.toFixed(1)+' m/s)':'Toque com asa torta, nariz baixo ou rápido demais');
+s.ground=1;s.g=0;s.phi=0;s.msg=(vs>-1?'Pouso perfeito!':vs>-2.2?'Pouso suave':'Pouso firme')+(onRW(s.x,s.y)?'':' (fora da pista)');s.mt=6}}
+const hv=s.V*Math.cos(s.g);s.x+=hv*Math.sin(s.psi)*dt;s.y-=hv*Math.cos(s.psi)*dt;s.trip+=hv*dt;
+s.vsd+=(s.V*Math.sin(s.g)-s.vsd)*Math.min(1,3*dt);
+AP.forEach((a,i)=>{const d=Math.hypot(a.x-s.x,a.y-s.y);if(d<8000&&!s.nr[i]){s.nr[i]=1;s.msg='Torre de '+a.n+': pista 09/27 livre, pouso autorizado';s.mt=6}if(d>12000)s.nr[i]=0});
+s.tt+=dt;if(s.tt>.6){s.tt=0;s.trail.push([Math.round(s.x/S*mk*10)/10,Math.round(s.y/S*mk*10)/10]);if(s.trail.length>500)s.trail.shift()}
+CI.forEach((c,i)=>{if(!s.vis[i]&&Math.hypot(c.x-s.x,c.y-s.y)<2500){s.vis[i]=1;const was=i==s.tgt;let m='Sobrevoou '+c.n+'!';if(was){let b=-1,bd=1e9;CI.forEach((q,j)=>{const d=Math.hypot(q.x-s.x,q.y-s.y);if(!s.vis[j]&&d<bd){bd=d;b=j}});if(b>=0){pick(b);m+=' Próximo destino: '+CI[b].n}else m+=' Circuito completo!'}s.msg=m;s.mt=6}});
+if(run){s.fuel=Math.max(0,s.fuel-(.003+.022*s.thr)*dt);if(!s.fuel){s.msg='Sem combustível!';s.mt=8}}
+for(const m of MT){const d=Math.hypot(s.x-m.x,s.y-m.y);if(d<m.r&&s.z<m.h*(1-d/m.r))return crash('Colisão com a serra!')}
+if(s.mt<1e8)s.mt-=dt;
+if(au&&os){os.frequency.value=40+s.thr*60;gn.gain.value=(muted||!run)?0:.03+.04*s.thr}}
+/* render */
+const nc=(p,q)=>{const t=(NR-p[0])/(q[0]-p[0]);return[NR,p[1]+t*(q[1]-p[1]),p[2]+t*(q[2]-p[2])]};
+const clip=ps=>{const o=[];for(let i=0;i<ps.length;i++){const a=ps[i],b=ps[(i+1)%ps.length],ai=a[0]>=NR,bi=b[0]>=NR;if(ai)o.push(a);if(ai!=bi)o.push(nc(a,b))}return o};
+const Q=p=>[CX+F*p[1]/p[0],CY-F*p[2]/p[0]],X=p=>Q(p).map(v=>v.toFixed(1)).join(',');
+const W=[1,1.6,3,7,17,40];
+function render(){
+const cf=Math.cos(s.phi),sf=Math.sin(s.phi),sp=Math.sin(s.psi),cp=Math.cos(s.psi),st=Math.sin(s.th),ct=Math.cos(s.th),ez=s.z+1.6;
+const P=(wx,wy,wz)=>{const dx=wx-s.x,dn=s.y-wy,u=wz-ez,a=dx*sp+dn*cp,b=dx*cp-dn*sp,d=a*ct+u*st,v=-a*st+u*ct;return[d,b*cf-v*sf,b*sf+v*cf]};
+const poly=(pts,fill,ex='')=>{const c=clip(pts);return c.length>2?`<path d="M${c.map(X).join('L')}Z" fill="${fill}" ${ex}/>`:''};
+const ring=(x,y,r,n)=>Array.from({length:n},(_,i)=>P(x+r*Math.cos(i*6.283/n),y+r*Math.sin(i*6.283/n),0));
+const box=(x,y,w,z0,z1,cs,ct)=>{const h=w/2,C=[[x-h,y-h],[x+h,y-h],[x+h,y+h],[x-h,y+h]],f=[];for(let i=0;i<4;i++){const A=C[i],B2=C[(i+1)%4],pts=[P(A[0],A[1],z0),P(B2[0],B2[1],z0),P(B2[0],B2[1],z1),P(A[0],A[1],z1)];f.push([(pts[0][0]+pts[1][0])/2,pts,i])}f.sort((a,b)=>b[0]-a[0]);let r='';for(const g of f)r+=poly(g[1],cs[g[2]%2]);return r+(ez>z1?poly(C.map(c=>P(c[0],c[1],z1)),ct):'')};
+$('hz').setAttribute('transform',`rotate(${-s.phi*D} ${CX} ${CY}) translate(0 ${CY+F*Math.tan(s.th)})`);
+let o='';
+for(const c of CI){const d=Math.hypot(c.x-s.x,c.y-s.y);if(d>40000)continue;o+=poly(ring(c.x,c.y,700,10),'#c9b595');
+if(d<7000)for(let i=0;i<22;i++){const g=hs(i,c.x)*6.28,r=hs(i+50,c.y)*600,p=P(c.x+Math.cos(g)*r,c.y+Math.sin(g)*r,0);if(p[0]>NR){const q=Q(p),w=F*25/p[0];o+=`<ellipse cx="${q[0].toFixed(1)}" cy="${q[1].toFixed(1)}" rx="${w.toFixed(1)}" ry="${Math.max(.5,w*Math.min(1,ez/p[0]*1.5)).toFixed(1)}" fill="#a5472f"/>`}}}
+const cs=1500,ix0=Math.floor(s.x/cs),iy0=Math.floor(s.y/cs);
+for(let i=-6;i<=6;i++)for(let j=-6;j<=6;j++){const ix=ix0+i,iy=iy0+j,h=hs(ix,iy);if(h>.6)continue;const wx=(ix+hs(iy,ix))*cs,wy=(iy+hs(ix+9,iy))*cs;if(NZ.some(z=>Math.hypot(z.x-wx,z.y-wy)<2500))continue;const p=P(wx,wy,0);if(p[0]<30||p[0]>11000||Math.abs(p[1])>p[0]*1.2)continue;const q=Q(p),w=Math.min(90,F*350/p[0]);o+=`<ellipse cx="${q[0].toFixed(1)}" cy="${q[1].toFixed(1)}" rx="${w.toFixed(1)}" ry="${Math.max(.5,w*Math.min(1,ez/p[0]*1.5)).toFixed(1)}" fill="${h<.3?'#3e5f2a':'#58803a'}" opacity="${(1-p[0]/11000).toFixed(2)}"/>`}
+const B=['','','','','',''];
+for(const g of SG){let a=P(g[0],g[1],0),b=P(g[2],g[3],0);if(a[0]<NR&&b[0]<NR)continue;if(a[0]<NR)a=nc(a,b);else if(b[0]<NR)b=nc(b,a);const d=(a[0]+b[0])/2;if(d>60000)continue;B[d<300?5:d<1000?4:d<3000?3:d<8000?2:d<20000?1:0]+=`M${X(a)}L${X(b)}`}
+B.forEach((d,i)=>{if(d)o+=`<path d="${d}" stroke="#9b4a34" stroke-width="${W[i]}" stroke-linecap="round" fill="none"/>`});
+for(const a of AP){const d=Math.hypot(a.x-s.x,a.y-s.y);if(d>40000)continue;o+=poly([[-900,-22],[900,-22],[900,22],[-900,22]].map(q=>P(a.x+q[0],a.y+q[1],0)),'#3d3e42');
+if(d<14000){for(let i=-8;i<=8;i++)o+=poly([[-25,-.8],[25,-.8],[25,.8],[-25,.8]].map(q=>P(a.x+i*100+q[0],a.y+q[1],0)),'#eee');for(let i=1;i<=8;i++)for(const sg of[-1,1]){const lx=a.x+sg*(900+i*80);o+=poly([[-4,-4],[4,-4],[4,4],[-4,4]].map(q=>P(lx+q[0],a.y+q[1],0)),i%2?'#ffd24a':'#fff')}}
+if(d<30000){const tx=a.x+250,ty=a.y-70;o+=box(tx,ty,10,0,26,['#d0d0d0','#aaa'],'#bbb')+box(tx,ty,24,26,31,['#6fb7e6','#5aa3d3'],'#445')+box(tx,ty,26,31,33,['#333','#2a2a2a'],'#555')}}
+const ms=MT.map(m=>({m,c:P(m.x,m.y,0)})).filter(q=>q.c[0]>-q.m.r&&q.c[0]<70000).sort((a,b)=>b.c[0]-a.c[0]);
+for(const{m,c}of ms){const A=P(m.x,m.y,m.h),L=P(m.x-cp*m.r,m.y-sp*m.r,0),R=P(m.x+cp*m.r,m.y+sp*m.r,0),op=`opacity="${Math.max(.25,1-c[0]/70000).toFixed(2)}"`;o+=poly([L,A,c],'#8f7b55',op)+poly([c,A,R],'#6a5a3d',op)}
+const tag=(x,y,n,dist,col)=>{const p=P(x,y,0),q=P(x,y,col?250:500);if(p[0]<NR||q[0]<NR||p[0]>45000)return'';const a=Q(p),b=Q(q),fs=Math.max(11,Math.min(26,170000/p[0]));return`<path d="M${a}L${b}" stroke="${col||'#fff'}" stroke-width="1.5" opacity=".8"/><text x="${b[0].toFixed(1)}" y="${(b[1]-4).toFixed(1)}" font-size="${fs.toFixed(0)}" font-weight="700" text-anchor="middle" fill="${col||'#fff'}" stroke="#000" stroke-width="3" style="paint-order:stroke">${n}<tspan x="${b[0].toFixed(1)}" dy="1.1em" font-size=".7em">${(dist/1000).toFixed(0)} km</tspan></text>`};
+for(const c of CI)o+=tag(c.x,c.y,c.n,Math.hypot(c.x-s.x,c.y-s.y));
+for(const a of AP)o+=tag(a.x+250,a.y-70,'TORRE',Math.hypot(a.x-s.x,a.y-s.y),'#7dff9a');
+$('wd').innerHTML=o;
+/* HUD */
+let nr=CI[0],nd2=1e9;
+for(const c of CI){
+	const d=Math.hypot(c.x-s.x,c.y-s.y);
+	if(d<nd2){nd2=d;nr=c}}
+	const hd=(s.psi*D%360+360)%360,
+		brg=(Math.atan2(nr.x-s.x,s.y-nr.y)*D+360)%360;
+	$('t1').textContent=`Mais próxima: ${nr.n}, ${(nd2/1000).toFixed(1)} km, rumo ${String(Math.round(brg)).padStart(3,'0')}°`;
+	$('t3').textContent=s.mt>0?s.msg:'';
+	const w=s.crashed?'ACIDENTE! Enter reinicia':paused?'PAUSADO':s.stall?'STALL!':!s.fuel?'SEM COMBUSTÍVEL':s.fuel<15?'COMBUSTÍVEL BAIXO':'';
+	$('t2').textContent=w;$('t2').style.opacity=s.stall&&Math.floor(performance.now()/250)%2?.3:1;
+	if(s.crashed)$('t3').textContent=s.msg;
+	const px=s.x/S*mk,py=s.y/S*mk,cx=HM?HC[0]:px,cy=HM?HC[1]:py;$('mhb').setAttribute('fill',HM?'#b8860b':'#000');
+	$('mz').style.setProperty('--z',ZM);$('mz').setAttribute('transform',ZM>1?`translate(${cl(MW/2-cx*ZM,MW-MW*ZM,0)} ${cl(MH/2-cy*ZM,MH-MH*ZM,0)}) scale(${ZM})`:'');
+	$('mp').setAttribute('transform',`translate(${px},${py}) rotate(${s.psi*D}) scale(${1/ZM})`);
+	const tc=CI[s.tgt],td=Math.hypot(tc.x-s.x,tc.y-s.y),pr=cl(1-td/Math.max(s.d0,td,1),0,1);
+	$('mt').setAttribute('d',s.trail.length?'M'+s.trail.map(p=>p.join(',')).join('L'):'');
+	$('ml').setAttribute('x1',s.x/S*mk);$('ml').setAttribute('y1',s.y/S*mk);$('ml').setAttribute('x2',tc.x/S*mk);$('ml').setAttribute('y2',tc.y/S*mk);
+	CI.forEach((c,i)=>{const e=$('mc'+i);e.setAttribute('fill',s.vis[i]?'#4cd964':'#fff');e.setAttribute('r',(i==s.tgt?7:4.5)/ZM);e.setAttribute('stroke',i==s.tgt?'#ffb000':'#000');e.setAttribute('stroke-width',i==s.tgt?3:1)});
+	$('mb').setAttribute('width',(320*pr).toFixed(1));
+	$('mbt').textContent=`${tc.n} ${(td/1000).toFixed(1)} km · ${Math.round(pr*100)}% · ${s.vis.filter(Boolean).length}/9 visitadas · N troca`;
+	/* instrumentos */
+	const set=(id,v)=>$(id).setAttribute('transform',v),
+		kmh=s.V*3.6,
+		msl=800+s.z;
+	set('nS',`rotate(${av(Math.min(kmh,400))})`);
+	$('tS').textContent=Math.round(kmh);
+	set('nA1',`rotate(${msl%1000/1000*360})`);
+	set('nA2',`rotate(${msl/10000*360})`);
+	$('tA').textContent=Math.round(msl)+' m';
+	set('nV',`rotate(${-90+cl(s.vsd,-10,10)*17})`);
+	set('aiH',`rotate(${-s.phi*D}) translate(0 ${s.th*D*2.2})`);
+	set('aiR',`rotate(${-s.phi*D})`);
+	set('nF',`rotate(${-110+220*s.fuel/120})`);
+	$('tF').textContent=Math.round(s.fuel)+' L';
+	set('kT',`translate(0 ${490+(1-s.thr)*210})`);
+	set('kF',`translate(0 ${490+s.fl*70})`);
+	set('mE',`translate(0 ${595-s.elev*100})`);
+	set('mA',`translate(${1100+s.ail*70} 496)`);
+	set('mR',`translate(${1100+s.rud*70} 586)`);
+	$('tD').textContent=(s.trip/1000).toFixed(1)+' km';
+	$('tH').textContent=String(Math.round(hd)%360).padStart(3,'0')+'°';
+	set('cR',`rotate(${-hd})`);
+	set('nAD',`rotate(${Math.atan2(CI[s.tgt].x-s.x,s.y-CI[s.tgt].y)*D-hd})`);
+	$('s1').textContent=`${s.ground?'NO SOLO':'EM VOO'}  motor ${Math.round(s.thr*100)}%  flapes ${[0,10,20,30][s.fl]}°`;
+	$('s2').textContent=`altura ${Math.round(s.z)} m   subida ${s.vsd.toFixed(1)} m/s${s.brk?'   FREIO':''}`
+	}
+let last=performance.now();
+(function f(t){const dt=Math.min(.05,(t-last)/1000||0);last=t;if(!paused)update(dt);render();requestAnimationFrame(f)})(last);
+</script></body></html>
